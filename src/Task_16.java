@@ -8,27 +8,21 @@ import java.io.*;
 public class Task_16 {
     public static void main(String[] args) throws IOException {
         String line;
-
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        System.out.println("Чтобы остановить запись в файль - введите слово 'stop'");
-
+        System.out.println("Чтобы остановить запись в файл - введите слово 'stop'");
         File file = new File("file.txt");
-        FileWriter fileWriter = new FileWriter(file);
 
-        try (FileWriter fileWriter = new FileWriter(file.txt)){
-            do{
-                System.out.print(": ");
+        try (FileWriter fileWriter = new FileWriter(file);){
+            do {
+                System.out.print(" ");
                 line = bufferedReader.readLine();
-
                 if(line.compareTo("stop")== 0) break;
                 line = line + "\r\n";
                 fileWriter.write(line);
             } while(line.compareTo("stop") != 0);
         } catch(IOException e){
-            System.out.println("Ошибка ввода-вывода: " + e);
-        }
-
+            System.out.println("Ошибка: " + e);
+       }
     }
 }
